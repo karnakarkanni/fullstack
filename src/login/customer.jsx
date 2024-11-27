@@ -1,48 +1,63 @@
-
-import { Link ,useNavigate} from "react-router-dom";
-function Customer(){
-    var  navigate = useNavigate();
-
-    var admin=(e)=>{
-        e.preventDefault()
-
-        if((e.target[0].value)=="karnakarmaratikanni@gmail.com" && (e.target[1].value)=="123"){
-            navigate("/adimin/todo")
-        }else{
-            alert("Invalid details")
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+function Customer() {
+    const navigate = useNavigate();
+    const [users, setUsers] = useState([]); 
+    const adminLogin = (e) => {
+        e.preventDefault();
+        const email = e.target[0].value;
+        const password = e.target[1].value;
+        if (email === "karnakarmaratikanni@gmail.com" && password === "123") {
+            navigate("/admin/todo");
+        } else {
+            alert("Invalid Admin details");
         }
-    }
-    var user=(e)=>{
-        e.preventDefault()
-        navigate("/home")
-
-
-
-    }
-
-
-
-    return(<>
-    <div id="Customer">
-    <div id="l">
-        <h1>Customer Login</h1>
-        <form action="" onSubmit={user}>
-            <input type="email" placeholder="Email"  id="k1" /><br /><br />
-            <input type="password" placeholder="password" id="k2"/><br /><br />
-            <input type="submit" id="k3"/><br /><br />
-            <span>Not a member ? <Link to={"/Registration"}>registar here</Link> </span><br /><br />
-            <span> <Link to={"/home"}>Login as a Guest</Link> </span><br /><br />
-        </form>
-    </div>
-    <div id="l">
-        <h1>Admin Login</h1>
-        <form action="" onSubmit={admin}>
-            <input type="email" placeholder="Email"  id="k1" /><br /><br />
-            <input type="password" placeholder="password" id="k2"/><br /><br />
-            <input type="submit" id="k3"/>  
-        </form>
-    </div>
-    </div>
-    </>)
+    };
+    useEffect(() => {
+        axios.get("http://localhost:3202/register")
+            .then((res) => {
+                setUsers(res.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching users data:", error);
+            });
+    }, []);
+    const userLogin = (e) => {
+        e.preventDefault();
+        const email = e.target[0].value;
+        const password = e.target[1].value;
+        const foundUser = users.find(user => user.email === email && user.password === password);
+        if (foundUser) {
+            navigate("/home");
+        } else {
+            alert("Invalid email or password");
+        }
+    };
+    return (
+        <>5
+            <div id="Customer">
+                <div id="l">
+                    <h1>Customer Login</h1>
+                    <form onSubmit={userLogin}>
+                        <input type="email" placeholder="Email" id="k1" required /><br /><br />
+                        <input type="password" placeholder="Password" id="k2" required /><br /><br />
+                        <input type="submit" id="k3" value="Login" /><br /><br />
+                        <span>Not a member? <Link to="/Registration">Register here</Link></span><br /><br />
+                        <span> <Link to="/home">Login as a Guest</Link> </span><br /><br />
+                    </form>
+                </div>
+                <div id="l">
+                    <h1>Admin Login</h1>
+                    <form onSubmit={adminLogin}>
+                        <input type="email" placeholder="Email" id="k1" required /><br /><br />
+                        <input type="password" placeholder="Password" id="k2" required /><br /><br />
+                        <input type="submit" id="k3" value="Login" />
+                    </form>
+                </div>
+            </div>
+        </>
+    );
 }
+
 export default Customer;

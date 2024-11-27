@@ -19,7 +19,7 @@ function Footer(){
             <ul id="k" ><Link to={"/service"} id="link">Events</Link>   </ul>
             <ul id="k"> <Link to={"/about"} id="link">About us</Link>   </ul>
             <ul id="k"> <Link to={"/foot"} id="link">address</Link>    </ul>
-            <ul id="k">Login </ul>
+            <ul id="k"> <Link to={"/login"} id="link"> Login </Link> </ul>
         </div>
         <div id="footers">
             <h2>Other Links</h2>

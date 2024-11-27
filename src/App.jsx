@@ -12,7 +12,9 @@ import Indoor from './eventmana.jsx/indoor';
 import Outdoor from './eventmana.jsx/outdoor';
 import Registration from './login/Registration';
 import Customer from './login/customer';
-import Todo from './eventmana.jsx/admin_access/todo';
+import Api from './admin_access/todo';
+// import Todo from './admin_access/todo';
+import LoginForm from './creating_api\'s/api1';
 
 function App() {
   return (
@@ -28,12 +30,14 @@ function App() {
           <Route path='/home/service1' element={<Outdoor/>} />
           <Route path='/login' element={<Customer/>} />
           <Route path='/Registration' element={<Registration/>} />
-          <Route path='/adimin/todo' element={<Todo/>}/>
+          {/* <Route path='/adimin/todo' element={<Todo/>}/> */}
 
           
         </Routes>
       {/* <Registration/> */}
       {/* <Customer/> */}
+      {/* <Api/> */}
+      <LoginForm/>
 
         
       </BrowserRouter>
