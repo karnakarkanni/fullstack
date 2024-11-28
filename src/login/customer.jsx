@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+
+
 function Customer() {
     const navigate = useNavigate();
     const [users, setUsers] = useState([]); 
@@ -9,7 +11,9 @@ function Customer() {
         const email = e.target[0].value;
         const password = e.target[1].value;
         if (email === "karnakarmaratikanni@gmail.com" && password === "123") {
-            navigate("/admin/todo");
+            navigate("/admin");
+            
+            
         } else {
             alert("Invalid Admin details");
         }
@@ -35,14 +39,14 @@ function Customer() {
         }
     };
     return (
-        <>5
+        <>
             <div id="Customer">
                 <div id="l">
                     <h1>Customer Login</h1>
                     <form onSubmit={userLogin}>
-                        <input type="email" placeholder="Email" id="k1" required /><br /><br />
-                        <input type="password" placeholder="Password" id="k2" required /><br /><br />
-                        <input type="submit" id="k3" value="Login" /><br /><br />
+                        <input type="email" placeholder="Email" id="k1" className="input" required /><br /><br />
+                        <input type="password" placeholder="Password" id="k2" className="input" required /><br /><br />
+                        <input type="submit" id="k3" value="Login" className="input"/><br /><br />
                         <span>Not a member? <Link to="/Registration">Register here</Link></span><br /><br />
                         <span> <Link to="/home">Login as a Guest</Link> </span><br /><br />
                     </form>
@@ -50,9 +54,9 @@ function Customer() {
                 <div id="l">
                     <h1>Admin Login</h1>
                     <form onSubmit={adminLogin}>
-                        <input type="email" placeholder="Email" id="k1" required /><br /><br />
-                        <input type="password" placeholder="Password" id="k2" required /><br /><br />
-                        <input type="submit" id="k3" value="Login" />
+                        <input type="email" placeholder="Email" id="k1"className="input" required /><br /><br />
+                        <input type="password" placeholder="Password" className="input" id="k2" required /><br /><br />
+                        <input type="submit" id="k3" value="Login" className="input" />
                     </form>
                 </div>
             </div>

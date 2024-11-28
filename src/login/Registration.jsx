@@ -33,19 +33,22 @@ function Registration(){
             }
         } catch (error) {
             console.error("Error posting data:", error);
-            alert("Gmail id is already!");
+            alert(error);
         }
     };
+
+
+
     return (<>
     <div id="Customer">
     <div id="l">
         <h1>Registration Page</h1>
         <form action="" onSubmit={sub} >
-            <input type="text" placeholder="Name" id="k1" name="name" value={register.name} onChange={ch} /><br /><br />
-        <input type="text" placeholder="Email" id="k2" name="email" value={register.email} onChange={ch}/><br /><br />
-        <input type="password" placeholder="Password" name="password" id="k3" value={register.password} onChange={ch}/><br /><br />
-        <input type="password" placeholder="confirm password" name="confirm_password" id="k4" value={register.confirm_password} onChange={ch}/><br /><br />
-        <input type="submit" value="submit" id="k5"/><br /><br />
+            <input type="text" placeholder="Name" id="k1" className="input" name="name" value={register.name} onChange={ch} /><br /><br />
+        <input type="text" placeholder="Email" id="k2" className="input" name="email" value={register.email} onChange={ch}/><br /><br />
+        <input type="password" placeholder="Password" className="input" name="password" id="k3" value={register.password} onChange={ch}/><br /><br />
+        <input type="password" placeholder="confirm password" className="input" name="confirm_password" id="k4" value={register.confirm_password} onChange={ch}/><br /><br />
+        <input type="submit" value="submit" className="input" id="k5"/><br /><br />
         <span>Already have an account? <Link to={"/login"} >Sign in here</Link></span>
         </form>
     </div>

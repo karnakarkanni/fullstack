@@ -3,19 +3,20 @@ body{
   padding: 0;
 }
 #nav {
+  
   display: flex;
   justify-content:space-evenly;
   align-items: center;
-  background-color:rgb(13, 48, 185);
+  background-color:rgb(14, 14, 16);
   color: rgb(40, 13, 13);
-  border: 2px solid rgb(13, 48, 185);
   padding: 10px;
   font-weight: bolder;
   font-size: larger;
 }
 #home {
-  background-color: rgba(196, 129, 169, 0.442);
-  background-image: url(https://img.stablecog.com/insecure/1920w/aHR0cHM6Ly9iLnN0YWJsZWNvZy5jb20vMTIxZTcxNmUtYjFmNC00MzkzLTkxOWQtYzVhNjM4MjY2MTU5LmpwZWc.webp);
+  background-color:  rgba(196, 129, 169, 0.442);
+  background-image: url(https://img.freepik.com/free-vector/detailed-hand-painted-pink-watercolour-background_1048-17039.jpg);
+  /* background-image: url(https://img.stablecog.com/insecure/1920w/aHR0cHM6Ly9iLnN0YWJsZWNvZy5jb20vMTIxZTcxNmUtYjFmNC00MzkzLTkxOWQtYzVhNjM4MjY2MTU5LmpwZWc.webp); */
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -26,7 +27,7 @@ body{
 
 #home1 {
   background-color: rgba(164, 124, 149, 0.433);
-  color: rgb(246, 246, 246);
+  color: rgb(19, 18, 18);
   width: 40%;
   text-align: center;
   border-radius: 2%;
@@ -57,8 +58,8 @@ body{
   width: 100%;
 }
 #cards {
-  width: 300px;
-  height: 400px;
+  width: 350px;
+  height: 450px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -131,6 +132,8 @@ color: azure;
   text-decoration: none;
 }
 #Customer{
+  
+  background-image: url(https://img.freepik.com/free-vector/detailed-hand-painted-pink-watercolour-background_1048-17039.jpg);
   height: 90vh;
   background-color: cadetblue;
   display: flex;
@@ -148,9 +151,44 @@ color: azure;
   border-radius: 10%;
   backdrop-filter: blur(10px);
 }
-input,#k5 {
+.input,#k5 {
   height: 30px;
   border-radius: 10px;
   font-size: 15px;
   font-weight: bold;
 }
+
+#admin {
+  background-color:  rgba(196, 129, 169, 0.442);
+  background-image: url(https://img.freepik.com/free-vector/detailed-hand-painted-pink-watercolour-background_1048-17039.jpg);
+  color: rgb(16, 10, 10);  
+  height: 100%; 
+  text-align: center; 
+padding: 20px;
+}
+table,tr,td{
+  border: 2px solid rgb(7, 0, 0);
+  margin-bottom: 60px;
+  height: 30px;
+
+}
+textarea{
+  background-color: #4ea1a0; 
+  color: #000000;
+  padding: 10px;            
+  border: 1px solid #100106;    
+          
+  font-size: 16px;         
+}
+#textarea{
+  background-color: #4ea1a0; 
+  color: #0e0303;
+  padding: 10px;            
+  border: 1px solid #100106; 
+  width: 110px;
+  height: 59px;   
+          
+  font-size: 16px; 
+
+}
+

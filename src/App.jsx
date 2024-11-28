@@ -12,9 +12,8 @@ import Indoor from './eventmana.jsx/indoor';
 import Outdoor from './eventmana.jsx/outdoor';
 import Registration from './login/Registration';
 import Customer from './login/customer';
-import Api from './admin_access/todo';
-// import Todo from './admin_access/todo';
-import LoginForm from './creating_api\'s/api1';
+import Todo from './admin_access/todo';
+
 
 function App() {
   return (
@@ -22,6 +21,7 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
+        <Route path='' element={<Registration />} />
           <Route path='/home' element={<Home />} />
           <Route path="/service" element={<Service />} />
           <Route path="/about" element={<About />} />
@@ -30,15 +30,11 @@ function App() {
           <Route path='/home/service1' element={<Outdoor/>} />
           <Route path='/login' element={<Customer/>} />
           <Route path='/Registration' element={<Registration/>} />
-          {/* <Route path='/adimin/todo' element={<Todo/>}/> */}
+          <Route path='/admin' element={<Todo/>} />
+         
 
           
         </Routes>
-      {/* <Registration/> */}
-      {/* <Customer/> */}
-      {/* <Api/> */}
-      <LoginForm/>
-
         
       </BrowserRouter>
     </>
