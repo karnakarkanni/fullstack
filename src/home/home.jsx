@@ -1,10 +1,11 @@
 import Service from "./event";
-import image1 from "../image/image1.jpg"
+// import image1 from "../image/image1.jpg"
 import { useEffect,useState } from "react";
 const images = [
     "https://www.marriagevenue.in/images/banner2.jpg",
     'https://watermark.lovepik.com/photo/20211122/large/lovepik-wedding-background-board-picture_500664172.jpg',
-    'https://www.shutterstock.com/image-photo/candle-event-wedding-party-260nw-315451904.jpg',
+    "https://i.pinimg.com/736x/20/c4/9e/20c49ec31c7a13a1cadc31fc4beb765f.jpg",
+   
    
   ];
 function Home(){
@@ -18,7 +19,7 @@ function Home(){
     setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
   useEffect(() => {
-    const intervalId = setInterval(nextImage, 3000); // 3000ms = 3 seconds
+    const intervalId = setInterval(nextImage, 3000); 
 
  
     return () => clearInterval(intervalId);
@@ -28,11 +29,11 @@ function Home(){
         <>
        
 <div id="home" >
-{/* <div style={{width:100}} id="home3" >
+<div id="home3" align="center" >
       <img src={images[currentIndex]} style={{width:1000}}/>
-    </div> */}
+    </div>
 
-<div id="home1">
+<div id="home1"  >
     <h1>Event management system</h1>
     <h5 >let's make your memories....</h5>
     <h1>Thing perish, but  </h1>

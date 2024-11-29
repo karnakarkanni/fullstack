@@ -2,22 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-
-function Customer() {
+function Customer({ setIsLoggedIn }) {
+    const [users, setUsers] = useState([]);
     const navigate = useNavigate();
-    const [users, setUsers] = useState([]); 
-    const adminLogin = (e) => {
-        e.preventDefault();
-        const email = e.target[0].value;
-        const password = e.target[1].value;
-        if (email === "karnakarmaratikanni@gmail.com" && password === "123") {
-            navigate("/admin");
-            
-            
-        } else {
-            alert("Invalid Admin details");
-        }
-    };
     useEffect(() => {
         axios.get("http://localhost:3202/register")
             .then((res) => {
@@ -31,18 +18,32 @@ function Customer() {
         e.preventDefault();
         const email = e.target[0].value;
         const password = e.target[1].value;
+
         const foundUser = users.find(user => user.email === email && user.password === password);
+        const foundUser1 = users.find(user => user.email === email);
+
         if (foundUser) {
+            localStorage.setItem('isLoggedIn', 'true');
+            setIsLoggedIn(true);
             navigate("/home");
-        } else {
-            alert("Invalid email or password");
+        } 
+        else if (email === "karnakarmaratikanni@gmail.com" && password === "123") {
+            navigate("/admin");
+        } 
+        else if(foundUser1){
+            alert("password is incorrect")
+
+        }
+        else if(!foundUser) {
+            alert("please register");
         }
     };
+
     return (
         <>
             <div id="Customer">
                 <div id="l">
-                    <h1>Customer Login</h1>
+                    <h1>Login</h1>
                     <form onSubmit={userLogin}>
                         <input type="email" placeholder="Email" id="k1" className="input" required /><br /><br />
                         <input type="password" placeholder="Password" id="k2" className="input" required /><br /><br />
@@ -51,17 +52,10 @@ function Customer() {
                         <span> <Link to="/home">Login as a Guest</Link> </span><br /><br />
                     </form>
                 </div>
-                <div id="l">
-                    <h1>Admin Login</h1>
-                    <form onSubmit={adminLogin}>
-                        <input type="email" placeholder="Email" id="k1"className="input" required /><br /><br />
-                        <input type="password" placeholder="Password" className="input" id="k2" required /><br /><br />
-                        <input type="submit" id="k3" value="Login" className="input" />
-                    </form>
-                </div>
             </div>
         </>
     );
 }
 
 export default Customer;
+

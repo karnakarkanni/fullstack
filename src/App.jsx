@@ -1,45 +1,52 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+
+import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Nav from './home/nav';
 import Home from './home/home';
 import Service from './home/event';
 import About from './home/about';
 import Footer from './home/footer';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Indoor from './eventmana.jsx/indoor';
 import Outdoor from './eventmana.jsx/outdoor';
 import Registration from './login/Registration';
 import Customer from './login/customer';
 import Todo from './admin_access/todo';
-
+import './App.css';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const loginStatus = localStorage.getItem('isLoggedIn');
+    if (loginStatus === 'true') {
+      setIsLoggedIn(true);
+    }
+  }, []);
+  
+
+    
+  
+
   return (
     <>
       <BrowserRouter>
         <Nav />
         <Routes>
-        <Route path='' element={<Registration />} />
-          <Route path='/home' element={<Home />} />
-          <Route path="/service" element={<Service />} />
-          <Route path="/about" element={<About />} />
-          <Route path='/foot' element={<Footer/>}/>
-          <Route path='/home/service' element={<Indoor/>}/>
-          <Route path='/home/service1' element={<Outdoor/>} />
-          <Route path='/login' element={<Customer/>} />
-          <Route path='/Registration' element={<Registration/>} />
-          <Route path='/admin' element={<Todo/>} />
-         
+          <Route path='/home' element={isLoggedIn ? <Home /> : <Navigate to="/login" />} />
+          <Route path='/service' element={isLoggedIn ? <Service /> : <Navigate to="/login" />} />
+          <Route path='/about' element={isLoggedIn ? <About /> : <Navigate to="/login" />} />
+          <Route path='/foot' element={isLoggedIn ? <Footer /> : <Navigate to="/login" />} />
+          <Route path='/home/service' element={isLoggedIn ? <Indoor /> : <Navigate to="/login" />} />
+          <Route path='/home/service1' element={isLoggedIn ? <Outdoor /> : <Navigate to="/login" />} />
 
-          
+          <Route path='/login' element={<Customer setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path='/Registration' element={<Registration />} />
+          <Route path='/admin' element={isLoggedIn ? <Todo /> : <Navigate to="/login" />} />
         </Routes>
-        
       </BrowserRouter>
     </>
   );
 }
 
 export default App;
+
 
