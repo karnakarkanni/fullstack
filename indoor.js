@@ -75,10 +75,6 @@ app.delete("/indoor/:id", (req, res) => {
 //         }
 //     });
 // });
-
-
-
-
 app.listen(3203,()=>{
     console.log("Server running on http://localhost:3203");
 })

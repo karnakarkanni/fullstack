@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Outdoor from "../eventmana.jsx/outdoor";
+import OutdoorTodo from "./outdoortodo";
 
 function Todo() {
   const [users, setUsers] = useState([]);
@@ -89,7 +91,7 @@ function Todo() {
   return (
     <div id="admin1">
     <div id="admin">
-        <h1 style={{margin:0 }}>Admin Access</h1>
+        <h1 style={{margin:0 }}>Indoor Admin Access</h1>
       <form onSubmit={sub}>
         <table border={2} align="center" style={{marginTop:30}} >
           <tr>
@@ -123,7 +125,9 @@ function Todo() {
       </div>
 
       
-    </div></div>
+    </div>
+    <OutdoorTodo/>
+    </div>
   );
 }
 export default Todo;
