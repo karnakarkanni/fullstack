@@ -10,8 +10,6 @@ function OutdoorTodo() {
     type: "outdoor",
     baseprice: "",
   });
-
-  // Fetch data from the backend
   const hello = () => {
     axios
       .get("http://localhost:3204/outdoor")
@@ -26,9 +24,8 @@ function OutdoorTodo() {
 
   useEffect(() => {
     hello();
-  }, []); // Empty dependency array to call only once on mount
+  }, []); 
 
-  // Handle input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setData((prevData) => ({
@@ -37,7 +34,6 @@ function OutdoorTodo() {
     }));
   };
 
-  // Handle form submission
   const sub = async (e) => {
     e.preventDefault();
     try {
@@ -49,15 +45,13 @@ function OutdoorTodo() {
       if (response.status === 200) {
         console.log("Data successfully posted");
         alert("Registered successfully");
-        hello(); // Refresh the user list after successful registration
+        hello(); 
       }
     } catch (error) {
       console.error("Error posting data:", error);
       alert("There was an error posting data: " + error.message);
     }
   };
-
-  // Handle deleting a user
   const handleDelete = (id) => {
     axios
       .delete(`http://localhost:3204/outdoor/${id}`)
@@ -72,7 +66,6 @@ function OutdoorTodo() {
       });
   };
 
-  // Display the fetched users
   const foundUser = users.map((user, index) => {
     return (
       <tr key={user.id || index}>

@@ -12,6 +12,7 @@ import Registration from './login/Registration';
 import Customer from './login/customer';
 import Todo from './admin_access/todo';
 import './App.css';
+import Indoorsee from './eventmana.jsx/Seemore/indoorsee';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -41,6 +42,7 @@ function App() {
           <Route path='/login' element={<Customer setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='/Registration' element={<Registration />} />
           <Route path='/admin' element={isLoggedIn ? <Todo /> : <Navigate to="/login" />} />
+          <Route path='/home/service/seemore'  element={<Indoorsee />}/>
         </Routes>
       </BrowserRouter>
     </>

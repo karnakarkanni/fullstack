@@ -52,7 +52,7 @@ function Outdoor() {
         <td>{user.address}</td>
         <td>{user.type}</td>
         <td>{user.baseprice}</td>
-        <td><button>Book now</button></td>
+        <td><button>See More</button></td>
 
       </tr>
     );
@@ -88,7 +88,7 @@ function Outdoor() {
             <th>Address</th>
             <th>Type</th>
             <th>Baseprice</th>
-            <th>Book</th>
+            <th>See More</th>
 
 
           </tr>
